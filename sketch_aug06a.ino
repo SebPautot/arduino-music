@@ -1,5 +1,5 @@
 int sheet[]={
-//At Doom's Gate - DOOM - E1M1 (Best at : Speed 0.65 / Octavia 0)
+//At Doom's Gate - DOOM - E1M1 (Best at : Speed 0.65 / Octave 0)
 12,12,22,12,12,112,12,12,110,12,12,18,12,12,19,110,
 12,12,22,12,12,112,12,12,110,12,12,18,0,0,0,0
 
@@ -7,8 +7,8 @@ int sheet[]={
 };
 
 float sheetSpeed = 0.65; // default => 1
-int octavia = 1; //default => 0
-int bootOctavia;
+int octave = 1; //default => 0
+int bootOctave;
 int note;
 String noteString;
 String noteHeightString;
@@ -25,8 +25,8 @@ void setup(){
   Serial.println("Setup");
   pinMode(ledPin,OUTPUT);
   digitalWrite(ledPin, HIGH);
-  bootOctavia = octavia;
-  octavia = 1;
+  bootOctave = octave;
+  octave = 1;
   //Nintendo - Gameboy startup
   play(312,50);
   delay(50);
@@ -38,7 +38,7 @@ void setup(){
   play(35,1000);
   delay(1000);
   
-  octavia = bootOctavia;
+  octave = bootOctave;
 }
 
 void loop(){
@@ -73,7 +73,7 @@ int play(int note, int l){
     Serial.println(noteString);
     Serial.println(noteHeightString);
     note = noteString.toInt();
-    noteHeight = noteHeightString.toInt()+octavia;
+    noteHeight = noteHeightString.toInt()+octave;
     Serial.println(note);
     Serial.println(noteHeight);
     
@@ -119,4 +119,3 @@ int play(int note, int l){
   
       digitalWrite(ledPin, HIGH);
 }
-
